@@ -4,11 +4,15 @@
 
 |       Column         | Type          | Options          |
 | -------------------- | ------------- | ---------------- |
-|   name               |  string       |  null:false      |
+|   first_name         |  string       |  null:false      |
+|   last_name          |  string       |  null:false      |
+|   first_name_kana    |  string       |  null:false      |
+|   last_name_kana     |  string       |  null:false      |
+|   nick_name          |  string       |  null:false      |
 |   email              |  string       |  null:false      |
 |   password           |  string       |  null:false      |
 |   profile            |  text         |  null:false      |
-|   date_of_birth      |  references   |  null:false     |
+|   date_of_birth      |  references   |  null:false      |
 
 ###   Association
 - has_many :item
