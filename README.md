@@ -11,12 +11,12 @@
 |   nick_name          |  string       |  null:false                    |
 |   email              |  string       |  null:false, unique:true       |
 |   encrypted_password |  string       |  null:false                    |
-|   date_of_birth      |  Date         |  null:false                    |
+|   date_of_birth      |  date         |  null:false                    |
 
 ###   Association
-- has_many :item
-- has_many :buy_historys
-
+- has_many :items
+- has_many :buy_deliverys
+- has_many :buy_management
 
 
 
@@ -26,18 +26,19 @@
 
 |       Column                | Type          | Options          |
 | --------------------------- | ------------- | ---------------- |
-|       name                  |  text         |  null:false      |
+|       name                  |  string       |  null:false      |
 |       profile               |  text         |  null:false      |
 |       price                 |  integer      |  null:false      |
 |       category_id           |  integer      |  null:false      |
 |       status_id             |  integer      |  null:false      |
 |   money_responsibility_id   |  integer      |  null:false      |
 |       outgoing_area_id      |  integer      |  null:false      |
-|       going_days_id         |  integer      |  null:false      |
+|       going_day_id         |  integer      |  null:false      |
 |       user                  |  references   | foreign_key:true |
 ### Association
 - belongs_to :users
-- has_one_attached :buy_historys
+- has_one :buy_deliverys
+- has_many :buy_management
 
 
 
@@ -45,7 +46,7 @@
 
 
 
-## buy_historys テーブル
+## buy_deliverys テーブル
 
 |       Column         | Type          | Options          |
 | -------------------- | ------------- | ---------------- |
@@ -55,9 +56,22 @@
 |  building            |  string       |                  |
 |  telephone_number    |  string       |  null:false      |
 |  outgoing_area_id    |  integer      |  null:false      |
-|  user                |  references   | foreign_key:true |
-|  item                |  references   | foreign_key:true |
+
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
+
+
+
+## buy_managements
+
+|       Column         | Type          | Options          |
+| -------------------- | ------------- | ---------------- |
+|  user_id             |  references   | foreign_key:true |
+|  item_id             |  references   | foreign_key:true |
+
+
+###   Association
+- belongs_to :user
+- belongs_to :item

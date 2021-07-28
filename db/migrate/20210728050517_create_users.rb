@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :nick_name,          null: false
       t.string :encrypted_password, null: false
       t.string :email,              null: false, unique:true
-      t.Date   :date_of_birth,      null: false
+      t.date   :date_of_birth,      null: false
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
-class CreateBuyHistories < ActiveRecord::Migration[6.0]
+class CreateBuyDeliveries < ActiveRecord::Migration[6.0]
   def change
-    create_table :buy_histories do |t|
+    create_table :buy_deliveries do |t|
 
       t.string       :post_number,                  null: false
       t.string       :city,                         null: false
@@ -8,8 +8,6 @@ class CreateBuyHistories < ActiveRecord::Migration[6.0]
       t.string       :building
       t.integer      :telephone_number,             null: false
       t.integer      :outgoing_area_id,             null: false
-      t.references   :user,               foreign_key:true
-      t.references   :item,               foreign_key:true
 
       t.timestamps
     end

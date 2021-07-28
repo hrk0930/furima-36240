@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer     :money_responsibility_id,    null: false
       t.integer     :outgoing_area_id,           null: false
       t.integer     :going_days_id,              null: false
-      t.references  :user                     foreign_key:true 
+      t.references  :user,                    foreign_key:true 
 
       t.timestamps
     end

@@ -1,0 +1,2 @@
+class BuyDelivery < ApplicationRecord
+end
