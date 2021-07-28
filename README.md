@@ -1,24 +1,60 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+|       Column         | Type          | Options          |
+| -------------------- | ------------- | ---------------- |
+|   name               |  string       |  null:false      |
+|   email              |  string       |  null:false      |
+|   password           |  string       |  null:false      |
+|   profile            |  text         |  null:false      |
+|   date_of_birth      |  references   |  null:false     |
 
-* Ruby version
+###   Association
+- has_many :item
+- has_many :delivery
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## items テーブル
 
-* Deployment instructions
+|       Column             | Type          | Options          |
+| ------------------------ | ------------- | ---------------- |
+|  image                   |  text         |  null:false      |
+|  item_name               |  text         |  null:false      |
+|  item_profile            |  text         |  null:false      |
+|  price                   |  string       |  null:false      |
+|  item_category           |  references   |  null:false      |
+|  item_status             |  references   |  null:false      |
+|item_money_responsibility |  references   |  null:false      |
+|  item_outgoing_area      |  references   |  null:false      |
+|  item_going_days         |  references   |  null:false      |
+|  user                    |  references   |                  |
+### Association
+- belongs_to :users
+- has_one_attached :delivery
 
-* ...
+
+
+
+
+
+
+## deliverys テーブル
+
+|       Column         | Type          | Options          |
+| -------------------- | ------------- | ---------------- |
+|  post_number         |  string       |  null:false      |
+|  city                |  string       |  null:false      |
+|  address             |  string       |  null:false      |
+|  building            |  string       |                  |
+|  telephone_number    |  string       |  null:false      |
+|  prefectures         |  references   |  null:false      |
+|  user                |  references   |                  |
+
+### Association
+- belongs_to :users
+- belongs_to :items
