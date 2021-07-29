@@ -15,8 +15,7 @@
 
 ###   Association
 - has_many :items
-- has_many :buy_deliverys
-- has_many :buy_management
+- has_many :buy_managements
 
 
 
@@ -33,12 +32,11 @@
 |       status_id             |  integer      |  null:false      |
 |   money_responsibility_id   |  integer      |  null:false      |
 |       outgoing_area_id      |  integer      |  null:false      |
-|       going_day_id         |  integer      |  null:false      |
+|       going_day_id          |  integer      |  null:false      |
 |       user                  |  references   | foreign_key:true |
 ### Association
-- belongs_to :users
-- has_one :buy_deliverys
-- has_many :buy_management
+- belongs_to :user
+- has_one :buy_managements
 
 
 
@@ -56,11 +54,10 @@
 |  building            |  string       |                  |
 |  telephone_number    |  string       |  null:false      |
 |  outgoing_area_id    |  integer      |  null:false      |
-
+|  user                |  references   | foreign_key:true |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :buy_management
 
 
 
@@ -68,10 +65,11 @@
 
 |       Column         | Type          | Options          |
 | -------------------- | ------------- | ---------------- |
-|  user_id             |  references   | foreign_key:true |
-|  item_id             |  references   | foreign_key:true |
+|  user                |  references   | foreign_key:true |
+|  item                |  references   | foreign_key:true |
 
 
 ###   Association
 - belongs_to :user
 - belongs_to :item
+- has_one :buy_delivery
