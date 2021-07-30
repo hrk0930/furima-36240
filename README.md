@@ -36,7 +36,7 @@
 |       user                  |  references   | foreign_key:true |
 ### Association
 - belongs_to :user
-- has_one :buy_managements
+- has_one :buy_management
 
 
 
@@ -54,7 +54,7 @@
 |  building            |  string       |                  |
 |  telephone_number    |  string       |  null:false      |
 |  outgoing_area_id    |  integer      |  null:false      |
-|  user                |  references   | foreign_key:true |
+|  buy_management      |  references   | foreign_key:true |
 
 ### Association
 - belongs_to :buy_management
