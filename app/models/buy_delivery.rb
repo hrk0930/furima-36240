@@ -1,4 +1,5 @@
 class BuyDelivery < ApplicationRecord
+
   validates :post_number,             presence: true
   validates :city,                    presence: true
   validates :address,                 presence: true
@@ -8,4 +9,5 @@ class BuyDelivery < ApplicationRecord
   validates :buy_management,          presence: true
 
   belongs_to :buy_managements
+
 end

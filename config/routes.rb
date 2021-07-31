@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-<<<<<<< Updated upstream
-=======
+
   devise_for :users
   #resources  :users,    only: :show
 
->>>>>>> Stashed changes
+
+  devise_for :users
+
   root to: 'items#index'
   resources  :items,    only: [:index, :new]
   

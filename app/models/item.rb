@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   validates :name,                    presence: true
   validates :profile,                 presence: true
   validates :price,                   presence: true
@@ -12,4 +13,6 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one :buy_management
+
+
 end
