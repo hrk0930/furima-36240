@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
 
    with_options presence: true do
-    # presence:trueのみ適用されるカラムを書き出す
     
       with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
       validates :first_name  
