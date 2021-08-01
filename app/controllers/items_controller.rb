@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   def index
-  #  @items = Item.all
+   #@items = Item.all
   end
 
   #def new
   #end
 
   #def create
-   # @item = Item.new(prototype_params)
+   #@item = Item.new(prototype_params)
   #end
 
   #private
