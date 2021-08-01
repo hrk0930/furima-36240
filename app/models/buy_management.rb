@@ -1,8 +1,8 @@
 class BuyManagement < ApplicationRecord
-  validates :user
-  validates :item
+  #validates :user
+  #validates :item
 
-  belongs_to :user
-  belongs_to :item
-  has_one :buy_delivery
+  #belongs_to :user
+  #belongs_to :item
+  #has_one :buy_delivery
 end
