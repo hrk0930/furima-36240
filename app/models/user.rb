@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
    with_options presence: true do
-    
+
       with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
       validates :first_name  
       validates :last_name
@@ -25,6 +25,6 @@ class User < ApplicationRecord
 
 
   has_many :items
-  has_many :buy_managements
+  #has_many :buy_managements
 
 end
