@@ -2,6 +2,9 @@
 
 ## users テーブル
 
+
+Things you may want to cover:
+
 |       Column         | Type          | Options                        |
 | -------------------- | ------------- | -------------------------------|
 |   first_name         |  string       |  null:false                    |
@@ -11,7 +14,9 @@
 |   nick_name          |  string       |  null:false                    |
 |   email              |  string       |  null:false, unique:true       |
 |   encrypted_password |  string       |  null:false                    |
+|   birth              |  date         |  null:false                    |
 |   date_of_birth      |  date         |  null:false                    |
+
 
 ###   Association
 - has_many :items
