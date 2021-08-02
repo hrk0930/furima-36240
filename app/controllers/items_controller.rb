@@ -7,12 +7,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-   @item = Item.new(prototype_params)
+   @item = Item.new(syuppinn_params)
   end
 
   private
 
-  def prototype_params
-    params.require(:item).permit(:title, :image, :catch_copy, :concept).merge(user_id: current_user.id)
+  def syuppinn_params
+    params.require(:item).permit(:name, :profile, :price, :category_id, :status_id, :image, :money_responsibility_id, :outgoing_area_id, :going_days_id).merge(user_id: current_user.id)
   end
 end

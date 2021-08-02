@@ -1,18 +1,22 @@
 class Item < ApplicationRecord
 
-  validates :name,                    presence: true
-  validates :profile,                 presence: true
-  validates :price,                   presence: true
-  validates :category_id,             presence: true
-  validates :status_id,               presence: true
-  validates :money_responsibility_id, presence: true
-  validates :outgoing_area_id,        presence: true
-  validates :going_days_id,           presence: true
-  validates :user,                    presence: true
-  #validates :image
+  with_options presence: true do
+
+  validates :name
+  validates :profile
+  validates :price
+  validates :category_id
+  validates :status_id
+  validates :money_responsibility_id
+  validates :outgoing_area_id
+  validates :going_days_id
+  validates :user
+
+  end
 
   belongs_to :user
   has_one :buy_management
+  has_many_attached :image
 
 
 
