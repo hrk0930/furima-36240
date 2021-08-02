@@ -1,4 +1,4 @@
-class Going_days < ActiveHash::Base
+class GoingDays < ActiveHash::Base
   
   self.data = [
     { id: 1, name: '--' },

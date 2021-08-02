@@ -11,16 +11,19 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
+    validates :name
+    validates :profile
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to:9_999_999 },
+                      presence: { message: "can't be blank"}
+    validates :outgoing_area_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :user
 
-  validates :name
-  validates :profile
-  validates :price
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :money_responsibility_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :outgoing_area_id, numericality: { other_than: 0 , message: "can't be blank"} 
-  validates :going_days_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :user
+   with_options numericality: { other_than: 1 , message: "can't be blank"} do
+     validates :category_id
+     validates :status_id
+     validates :money_responsibility_id
+     validates :going_days_id
+   end
 
   end
 

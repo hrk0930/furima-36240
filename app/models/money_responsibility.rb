@@ -1,4 +1,4 @@
-class Money_responsibility < ActiveHash::Base
+class MoneyResponsibility < ActiveHash::Base
   
   self.data = [
     { id: 1, name: '--' },
