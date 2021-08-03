@@ -1,2 +1,0 @@
-class BuyHistory < ApplicationRecord
-end
