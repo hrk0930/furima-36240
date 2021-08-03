@@ -17,7 +17,6 @@ class Item < ApplicationRecord
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to:9_999_999 },
                       presence: { message: "can't be blank"}, format: {with: /\A[0-9]+\z/}
     validates :outgoing_area_id, numericality: { other_than: 0 , message: "can't be blank"}
-    validates :user
 
    with_options numericality: { other_than: 1 , message: "can't be blank"} do
      validates :category_id

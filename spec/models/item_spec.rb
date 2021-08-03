@@ -15,6 +15,12 @@ RSpec.describe User, type: :model do
     end
 
     context '出品できないとき' do
+      it 'ユーザー情報がない場合は登録できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
+      
       it 'nameが空では出品できない' do
         @item.name = ''
         @item.valid?
