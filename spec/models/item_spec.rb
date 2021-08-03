@@ -34,31 +34,31 @@ RSpec.describe User, type: :model do
       end
 
       it 'category_idの値が1では保存できない' do
-        @item.category_id = '1'
+        @item.category_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it 'status_idの値が1では保存できない' do
-        @item.status_id = '1'
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
 
       it 'money_responsibility_idの値が1では保存できない' do
-        @item.money_responsibility_id = '1'
+        @item.money_responsibility_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Money responsibility can't be blank")
       end
 
       it 'outgoing_area_idの値が1では保存できない' do
-        @item.outgoing_area_id = '0'
+        @item.outgoing_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Outgoing area can't be blank")
       end
 
       it 'going_days_idの値が1では保存できない' do
-        @item.going_days_id = '1'
+        @item.going_days_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Going days can't be blank")
       end
