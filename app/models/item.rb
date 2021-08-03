@@ -11,8 +11,9 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
-    validates :name
-    validates :profile
+    validates :name,            length: {maximum: 40}
+    validates :profile,         length: {maximum: 1000}
+    validates :image
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to:9_999_999 },
                       presence: { message: "can't be blank"}, format: {with: /\A[0-9]+\z/}
     validates :outgoing_area_id, numericality: { other_than: 0 , message: "can't be blank"}
