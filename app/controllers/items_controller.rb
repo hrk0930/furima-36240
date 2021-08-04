@@ -24,6 +24,22 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+      unless user_signed_in? && current_user.id == @item.user_id
+       redirect_to action: :index
+      end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+      if @item.update(syuppinn_params)
+        redirect_to item_path
+       else
+        render :edit
+      end
+  end
+
   
 
 
@@ -32,7 +48,6 @@ class ItemsController < ApplicationController
   def syuppinn_params
     params.require(:item).permit(:name, :profile, :price, :category_id, :status_id, :image, :money_responsibility_id, :outgoing_area_id, :going_days_id).merge(user_id: current_user.id)
   end
-
    #def sold_out_item
     #redirect_to root_path if @items.buy_management.present?
    #end
