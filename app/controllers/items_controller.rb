@@ -5,8 +5,6 @@ class ItemsController < ApplicationController
   #before_action :sold_out_item, only: [:index]
 
 
-  
-
   def index
    @items = Item.order("created_at DESC")
   end
@@ -37,6 +35,12 @@ class ItemsController < ApplicationController
        else
         render :edit
       end
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
   end
 
   
