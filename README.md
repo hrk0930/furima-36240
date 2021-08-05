@@ -20,7 +20,7 @@ Things you may want to cover:
 
 ###   Association
 - has_many :items
-- has_many :buy_managements
+- has_many :orders
 
 
 
@@ -41,8 +41,7 @@ Things you may want to cover:
 |       user                  |  references   | foreign_key:true |
 ### Association
 - belongs_to :user
-- has_one :buy_management
-
+- has_one :order
 
 
 
@@ -62,7 +61,7 @@ Things you may want to cover:
 |  buy_management      |  references   | foreign_key:true |
 
 ### Association
-- belongs_to :buy_management
+- belongs_to :order
 
 
 
@@ -77,4 +76,4 @@ Things you may want to cover:
 ###   Association
 - belongs_to :user
 - belongs_to :item
-- has_one :buy_delivery
+- has_one :address

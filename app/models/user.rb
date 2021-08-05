@@ -25,6 +25,5 @@ class User < ApplicationRecord
 
 
   has_many :items
-  #has_many :buy_managements
-
+  has_many :orders
 end
