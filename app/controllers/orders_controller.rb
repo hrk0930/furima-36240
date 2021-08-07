@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_item,  only: [:index]
   before_action :user_redirect, only: [:index]
-  before_action :unless_user_redirect, only: [:index]
+
 
 
 
@@ -44,16 +44,17 @@ class OrdersController < ApplicationController
       if user_signed_in? && current_user.id == @item.user_id
         redirect_to root_path
       end
+      if @item.order.present?
+        redirect_to root_path
+      end
+       unless user_signed_in? 
+        redirect_to new_user_session_path
+       end
     end
 
     def set_item
       @item = Item.find(params[:item_id])
     end
 
-    def unless_user_redirect
-      unless user_signed_in?
-        redirect_to root_path
-      end
-    end
 
 end
