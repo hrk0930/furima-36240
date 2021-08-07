@@ -1,4 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_item,  only: [:index]
+  before_action :user_redirect, only: [:index]
+  before_action :unless_user_redirect, only: [:index]
+
+
+
   def index
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
@@ -32,5 +39,21 @@ class OrdersController < ApplicationController
                currency: 'jpy'                # 通貨の種類（日本円）
              )
       end
+      
+    def user_redirect
+      if user_signed_in? && current_user.id == @item.user_id
+        redirect_to root_path
+      end
+    end
+
+    def set_item
+      @item = Item.find(params[:item_id])
+    end
+
+    def unless_user_redirect
+      unless user_signed_in?
+        redirect_to root_path
+      end
+    end
 
 end
