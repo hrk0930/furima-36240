@@ -81,6 +81,12 @@ RSpec.describe OrderAddress, type: :model do
         expect(@address.errors.full_messages).to include("Telephone number is invalid")
       end
 
+      it'telephone_numberに半角英字が含まれていると購入できない' do
+        @address.telephone_number = '123456789AA'
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Telephone number Input only number")
+      end
+
       it "tokenが空では登録できないこと" do
           @address.token = nil
           @address.valid?
