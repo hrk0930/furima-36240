@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_item,  only: [:show, :edit, :update, :destroy]
   before_action :edit_user, only: [:edit, :update, :destroy]
-  before_action :sold_out_item, only: [:edit, :update]
+  before_action :sold_out_item, only: [:edit, :update, :destroy]
 
 
   def index
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
 
    def edit_user
-    unless user_signed_in? && current_user.id == @item.user_id
+    unless current_user.id == @item.user_id
       redirect_to action: :index
      end
    end

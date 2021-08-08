@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
   before_action :set_item,  only: [:index]
   before_action :user_redirect, only: [:index]
 
@@ -7,7 +6,6 @@ class OrdersController < ApplicationController
 
 
   def index
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
    end
 
