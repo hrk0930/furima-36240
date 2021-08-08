@@ -28,7 +28,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
-  has_one :buy_management
+  has_one :order
   has_one_attached :image
 
 

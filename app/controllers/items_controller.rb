@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_item,  only: [:show, :edit, :update, :destroy]
   before_action :edit_user, only: [:edit, :update, :destroy]
-  #before_action :sold_out_item, only: [:index]
+  before_action :sold_out_item, only: [:edit, :update, :destroy]
 
 
   def index
@@ -47,15 +47,19 @@ class ItemsController < ApplicationController
 
   private
 
-  def syuppinn_params
+   def syuppinn_params
     params.require(:item).permit(:name, :profile, :price, :category_id, :status_id, :image, :money_responsibility_id, :outgoing_area_id, :going_days_id).merge(user_id: current_user.id)
-  end
-   #def sold_out_item
-    #redirect_to root_path if @items.buy_management.present?
-   #end
+   end
+
+   def sold_out_item
+      if @item.order.present?
+        redirect_to root_path
+      end
+   end
+
 
    def edit_user
-    unless user_signed_in? && current_user.id == @item.user_id
+    unless current_user.id == @item.user_id
       redirect_to action: :index
      end
    end
@@ -63,5 +67,6 @@ class ItemsController < ApplicationController
    def set_item
      @item = Item.find(params[:id])
    end
+   
    
 end
