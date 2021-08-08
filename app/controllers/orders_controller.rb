@@ -42,12 +42,8 @@ class OrdersController < ApplicationController
       def user_redirect
         redirect_to root_path if current_user.id == @item.user_id || @item.order.present?
       end
-      #ユーザーがログインしていない場合ログインページに遷移する
-       unless user_signed_in? 
-        redirect_to new_user_session_path
-       end
-    end
-    def set_item
-      @item = Item.find(params[:item_id])
-    end
+      end
+      def set_item
+       @item = Item.find(params[:item_id])
+      end
 end
