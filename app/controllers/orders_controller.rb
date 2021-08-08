@@ -3,9 +3,6 @@ class OrdersController < ApplicationController
   before_action :set_item,             only: [:index, :create]
   before_action :user_redirect,        only: [:index, :create]
 
-
-
-
    def index
     @order_address = OrderAddress.new
    end
@@ -20,8 +17,6 @@ class OrdersController < ApplicationController
        render :index
     end
    end
-
-
 
    private
 
@@ -38,10 +33,9 @@ class OrdersController < ApplicationController
              )
       end
       #出品者が購入ページに遷移した時、または売れた商品の購入ページに遷移した時はroot＿pathに遷移される
-      def user_redirect
+       def user_redirect
         redirect_to root_path if current_user.id == @item.user_id || @item.order.present?
-      end
-      end
+       end
       def set_item
        @item = Item.find(params[:item_id])
       end
